@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#D84315">
+    <meta name="description" content="15天西班牙語生存完全體 - 從發音到實戰對話">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <title>🇪🇸 西班牙語速成學院</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Spanish-inspired Color Palette */
+            --sunset-orange: #FF6B35;
+            --deep-red: #D84315;
+            --golden-yellow: #FFA726;
+            --warm-cream: #FFF8E1;
+            --olive-green: #7CB342;
+            --midnight-blue: #1A237E;
+            --soft-white: #FAFAFA;
+            --charcoal: #212121;
+            --success: #66BB6A;
+            --error: #EF5350;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #D84315 100%);
+            --gradient-accent: linear-gradient(135deg, #FFA726 0%, #FF6B35 100%);
+            --gradient-dark: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #FFF8E1 0%, #FFE0B2 50%, #FFCCBC 100%);
+            background-attachment: fixed;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(216, 67, 21, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 100px;
+        }
+
+        /* Header Section */
+        .app-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .app-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .app-subtitle {
+            font-size: 1.1rem;
+            color: #5D4037;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .flag-emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 15px;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        /* Tab Navigation */
+        .tab-container {
+            background: white;
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 8px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            color: #666;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--deep-red);
+        }
+
+        .tab-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(216, 67, 21, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Controls Panel */
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            border: 3px solid transparent;
+            background-image: 
+                linear-gradient(white, white),
+                var(--gradient-accent);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        select {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: white;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        select:hover {
+            border-color: var(--sunset-orange);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--deep-red);
+            box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.1);
+        }
+
+        .progress-bar {
+            background: #F5F5F5;
+            height: 8px;
+            border-radius: 10px;
+            margin-top: 18px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.3),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Speed Control */
+        .speed-control {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #FFE082;
+        }
+
+        .speed-control label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--deep-red);
+        }
+
+        .speed-icon {
+            font-size: 1.3rem;
+        }
+
+        .speed-label {
+            font-size: 0.95rem;
+        }
+
+        .speed-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .speed-mark {
+            font-size: 1.2rem;
+            user-select: none;
+        }
+
+        #speedSlider {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(to right, #FFE082 0%, var(--sunset-orange) 50%, var(--deep-red) 100%);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        #speedSlider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 3px solid var(--sunset-orange);
+            transition: all 0.3s;
+        }
+
+        #speedSlider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        #speedSlider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: 3px solid var(--sunset-orange);
+            transition: all 0.3s;
+        }
+
+        #speedSlider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .speed-value {
+            display: inline-block;
+            min-width: 50px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--deep-red);
+            font-size: 1rem;
+            background: #FFF3E0;
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-left: 10px;
+        }
+
+        /* Voice Selection */
+        .voice-control {
+            margin-top: 15px;
+        }
+
+        .voice-control label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--deep-red);
+        }
+
+        .voice-icon {
+            font-size: 1.3rem;
+        }
+
+        #voiceSelect {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            background: white;
+            color: var(--charcoal);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #voiceSelect:hover {
+            border-color: var(--sunset-orange);
+        }
+
+        #voiceSelect:focus {
+            outline: none;
+            border-color: var(--deep-red);
+            box-shadow: 0 0 0 3px rgba(216, 67, 21, 0.1);
+        }
+
+        .voice-gender-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .male-badge {
+            background: #E3F2FD;
+            color: #1976D2;
+        }
+
+        .female-badge {
+            background: #FCE4EC;
+            color: #C2185B;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Pronunciation Guide Styles */
+        .pronunciation-intro {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border-left: 6px solid var(--sunset-orange);
+        }
+
+        .pronunciation-intro h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            color: var(--deep-red);
+            margin-bottom: 15px;
+        }
+
+        .pronunciation-intro p {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .pronunciation-grid {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .pronunciation-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid var(--golden-yellow);
+        }
+
+        .pronunciation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .pronunciation-card h3 {
+            font-size: 1.4rem;
+            color: var(--deep-red);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pronunciation-card h3::before {
+            content: '🎯';
+            font-size: 1.6rem;
+        }
+
+        .pronunciation-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        .pronunciation-table th {
+            text-align: left;
+            padding: 12px 15px;
+            background: var(--gradient-accent);
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .pronunciation-table th:first-child {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .pronunciation-table th:last-child {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pronunciation-table td {
+            padding: 14px 15px;
+            background: #FAFAFA;
+            border-bottom: 1px solid #EEEEEE;
+        }
+
+        .pronunciation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .letter-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--deep-red);
+        }
+
+        .sound-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sound-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(216, 67, 21, 0.3);
+        }
+
+        .sound-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Lesson Card Styles */
+        .card {
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid transparent;
+            animation: slideInUp 0.5s ease-out backwards;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-left-color: var(--sunset-orange);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.05s; }
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.15s; }
+        .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
+
+        .card-main {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.05));
+            transition: width 0.4s;
+        }
+
+        .card:hover .card-main::before {
+            width: 100%;
+        }
+
+        .text-group {
+            flex-grow: 1;
+            margin-right: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .es {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            display: block;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .zh {
+            font-size: 1.05rem;
+            color: #757575;
+            font-weight: 500;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-speak {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(216, 67, 21, 0.3);
+        }
+
+        .btn-speak:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(216, 67, 21, 0.4);
+        }
+
+        .btn-speak:active {
+            transform: scale(0.9);
+        }
+
+        .btn-detail {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #FFF3E0;
+            color: var(--sunset-orange);
+            font-size: 1.3rem;
+            border: 2px solid #FFE0B2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-detail:hover {
+            background: var(--golden-yellow);
+            color: white;
+            border-color: var(--golden-yellow);
+            transform: scale(1.1);
+        }
+
+        .btn-detail.active {
+            background: var(--golden-yellow);
+            color: white;
+            border-color: var(--golden-yellow);
+            transform: rotate(180deg);
+        }
+
+        /* Detail Box */
+        .detail-box {
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFF3E0 100%);
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 2px dashed #FFE082;
+        }
+
+        .detail-content {
+            padding: 25px 0;
+            font-size: 1rem;
+            color: #5D4037;
+            line-height: 1.8;
+        }
+
+        .tip-label {
+            font-weight: 700;
+            color: var(--deep-red);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .example {
+            margin-top: 15px;
+            padding: 18px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid var(--sunset-orange);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .ex-text {
+            flex-grow: 1;
+            font-style: italic;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .ex-zh {
+            display: block;
+            font-size: 0.9rem;
+            color: #888;
+            font-style: normal;
+            margin-top: 6px;
+            font-weight: 400;
+        }
+
+        .btn-ex-speak {
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            background: transparent;
+            color: var(--sunset-orange);
+            border: 2px solid var(--sunset-orange);
+            border-radius: 50%;
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        .btn-ex-speak:hover {
+            background: var(--sunset-orange);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        /* Quiz Button */
+        .quiz-start-area {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .btn-quiz-start {
+            padding: 18px 40px;
+            border-radius: 50px;
+            background: var(--gradient-dark);
+            color: white;
+            font-weight: 700;
+            font-size: 1.15rem;
+            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-quiz-start::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-quiz-start:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-quiz-start:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(26, 35, 126, 0.4);
+        }
+
+        .btn-quiz-start span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Quiz Modal */
+        .quiz-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .quiz-card {
+            background: white;
+            width: 100%;
+            max-width: 550px;
+            border-radius: 24px;
+            padding: 40px 35px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .quiz-question {
+            font-size: 1.6rem;
+            color: var(--charcoal);
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #E0E0E0;
+            background: white;
+            border-radius: 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--charcoal);
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--sunset-orange);
+            background: #FFF3E0;
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+            animation: pulse 0.5s;
+        }
+
+        .option-btn.wrong {
+            background: var(--error);
+            color: white;
+            border-color: var(--error);
+            animation: shake 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .quiz-score {
+            font-size: 1.1rem;
+            color: var(--deep-red);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-close-quiz {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            color: #999;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .btn-close-quiz:hover {
+            background: #F5F5F5;
+            color: var(--charcoal);
+            transform: rotate(90deg);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Install Banner */
+        .install-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .install-banner.show {
+            display: flex;
+        }
+
+        .install-btn {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dismiss-btn {
+            background: none;
+            color: #999;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .app-title {
+                font-size: 2.2rem;
+            }
+
+            .tab-btn {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+            }
+
+            .card-main {
+                padding: 15px;
+            }
+
+            .es {
+                font-size: 1.2rem;
+            }
+
+            .btn-speak, .btn-detail {
+                width: 42px;
+                height: 42px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <span class="flag-emoji">🇪🇸</span>
+            <h1 class="app-title">西班牙語速成學院</h1>
+            <p class="app-subtitle">15天從零到實戰對話 | 發音 → 生存必備 → 測驗</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('pronunciation')">📚 發音教學</button>
+            <button class="tab-btn" onclick="switchTab('lessons')">🎯 每日課程</button>
+        </div>
+
+        <!-- Pronunciation Section -->
+        <div id="pronunciation-section" class="content-section active">
+            <div class="pronunciation-intro">
+                <h2>🎵 西班牙語發音基礎</h2>
+                <p>西班牙語是世界上發音最規律的語言之一！只要掌握發音規則，看到字就能唸出來。讓我們從基礎開始：</p>
+            </div>
+
+            <div class="pronunciation-grid">
+                <!-- Vowels -->
+                <div class="pronunciation-card">
+                    <h3>五個元音 (Vocales)</h3>
+                    <table class="pronunciation-table">
+                        <thead>
+                            <tr>
+                                <th>字母</th>
+                                <th>發音</th>
+                                <th>範例</th>
+                                <th>試聽</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="letter-display">A</td>
+                                <td>發「啊」，類似中文「阿」</td>
+                                <td>Amigo (朋友)</td>
+                                <td><button class="sound-btn" onclick="speak('Amigo')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">E</td>
+                                <td>發「欸」，類似中文「誒」</td>
+                                <td>España (西班牙)</td>
+                                <td><button class="sound-btn" onclick="speak('España')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">I</td>
+                                <td>發「衣」，類似中文「一」</td>
+                                <td>Isla (島嶼)</td>
+                                <td><button class="sound-btn" onclick="speak('Isla')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">O</td>
+                                <td>發「喔」，類似中文「哦」</td>
+                                <td>Ojo (眼睛)</td>
+                                <td><button class="sound-btn" onclick="speak('Ojo')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">U</td>
+                                <td>發「烏」，類似中文「屋」</td>
+                                <td>Uno (一)</td>
+                                <td><button class="sound-btn" onclick="speak('Uno')">🔊</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Special Letters -->
+                <div class="pronunciation-card">
+                    <h3>特殊字母</h3>
+                    <table class="pronunciation-table">
+                        <thead>
+                            <tr>
+                                <th>字母</th>
+                                <th>發音規則</th>
+                                <th>範例</th>
+                                <th>試聽</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="letter-display">H</td>
+                                <td>永遠不發音（啞音）</td>
+                                <td>Hola (你好)</td>
+                                <td><button class="sound-btn" onclick="speak('Hola')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">Ñ</td>
+                                <td>發「尼-呀」，像「onion」</td>
+                                <td>Mañana (明天)</td>
+                                <td><button class="sound-btn" onclick="speak('Mañana')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">LL</td>
+                                <td>發「耶」或「夜」</td>
+                                <td>Llamar (叫)</td>
+                                <td><button class="sound-btn" onclick="speak('Llamar')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">J</td>
+                                <td>發「呵」（喉音）</td>
+                                <td>Jefe (老闆)</td>
+                                <td><button class="sound-btn" onclick="speak('Jefe')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">RR</td>
+                                <td>彈舌音（顫音）</td>
+                                <td>Perro (狗)</td>
+                                <td><button class="sound-btn" onclick="speak('Perro')">🔊</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Consonants -->
+                <div class="pronunciation-card">
+                    <h3>重要輔音</h3>
+                    <table class="pronunciation-table">
+                        <thead>
+                            <tr>
+                                <th>字母</th>
+                                <th>發音規則</th>
+                                <th>範例</th>
+                                <th>試聽</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="letter-display">C</td>
+                                <td>在 e, i 前發「斯」；其他發「K」</td>
+                                <td>Cena (晚餐) / Casa (家)</td>
+                                <td><button class="sound-btn" onclick="speak('Cena, Casa')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">G</td>
+                                <td>在 e, i 前發「呵」；其他發「G」</td>
+                                <td>Gente (人們) / Gato (貓)</td>
+                                <td><button class="sound-btn" onclick="speak('Gente, Gato')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">Z</td>
+                                <td>發「斯」（西班牙）或「S」（拉美）</td>
+                                <td>Zapato (鞋)</td>
+                                <td><button class="sound-btn" onclick="speak('Zapato')">🔊</button></td>
+                            </tr>
+                            <tr>
+                                <td class="letter-display">V</td>
+                                <td>與 B 發音相同（較輕的「B」）</td>
+                                <td>Vino (酒)</td>
+                                <td><button class="sound-btn" onclick="speak('Vino')">🔊</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Accent Rules -->
+                <div class="pronunciation-card">
+                    <h3>重音規則 (Acentuación)</h3>
+                    <div style="padding: 10px 0; line-height: 2;">
+                        <p><strong>1️⃣ 有重音符號（áéíóú）</strong> → 重音在該母音</p>
+                        <p style="margin-left: 20px; color: #666;">範例: <span style="color: var(--deep-red); font-weight: bold;">café</span> (咖啡) 
+                        <button class="sound-btn" style="margin-left: 10px;" onclick="speak('café')">🔊</button></p>
+                        
+                        <p><strong>2️⃣ 沒有重音符號 + 結尾是母音/n/s</strong> → 重音在倒數第二音節</p>
+                        <p style="margin-left: 20px; color: #666;">範例: <span style="color: var(--deep-red); font-weight: bold;">casa</span> (家)
+                        <button class="sound-btn" style="margin-left: 10px;" onclick="speak('casa')">🔊</button></p>
+                        
+                        <p><strong>3️⃣ 沒有重音符號 + 結尾是其他輔音</strong> → 重音在最後一音節</p>
+                        <p style="margin-left: 20px; color: #666;">範例: <span style="color: var(--deep-red); font-weight: bold;">hotel</span> (旅館)
+                        <button class="sound-btn" style="margin-left: 10px;" onclick="speak('hotel')">🔊</button></p>
+                    </div>
+                </div>
+
+                <!-- Practice Section -->
+                <div class="pronunciation-card" style="border-left-color: var(--olive-green);">
+                    <h3>練習時間 🎯</h3>
+                    <div style="padding: 10px 0;">
+                        <p style="margin-bottom: 15px; font-weight: 600;">試著唸出以下單字，點擊🔊聽正確發音：</p>
+                        <div style="display: grid; gap: 12px;">
+                            <div style="background: #FAFAFA; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 1.2rem; font-weight: 700;">¡Buenas noches!</span>
+                                <button class="sound-btn" onclick="speak('¡Buenas noches!')">🔊</button>
+                            </div>
+                            <div style="background: #FAFAFA; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 1.2rem; font-weight: 700;">¿Cómo estás?</span>
+                                <button class="sound-btn" onclick="speak('¿Cómo estás?')">🔊</button>
+                            </div>
+                            <div style="background: #FAFAFA; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 1.2rem; font-weight: 700;">Muchas gracias</span>
+                                <button class="sound-btn" onclick="speak('Muchas gracias')">🔊</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Section -->
+        <div id="lessons-section" class="content-section">
+            <div class="controls">
+                <select id="daySelect" onchange="renderContent()"></select>
+                <div class="progress-bar">
+                    <div id="progress" class="progress-fill"></div>
+                </div>
+                
+                <!-- 語速控制 -->
+                <div class="speed-control">
+                    <label for="speedSlider">
+                        <span class="speed-icon">🎚️</span>
+                        <span class="speed-label">語速調整</span>
+                    </label>
+                    <div class="speed-slider-container">
+                        <span class="speed-mark">🐢</span>
+                        <input type="range" id="speedSlider" min="0.5" max="1.5" step="0.1" value="0.9">
+                        <span class="speed-mark">🐰</span>
+                        <span class="speed-value" id="speedValue">0.9x</span>
+                    </div>
+                </div>
+
+                <!-- 語音選擇 -->
+                <div class="voice-control">
+                    <label for="voiceSelect">
+                        <span class="voice-icon">🎙️</span>
+                        <span class="speed-label">語音選擇</span>
+                    </label>
+                    <select id="voiceSelect">
+                        <option value="">載入中...</option>
+                    </select>
+                </div>
+            </div>
+            <div id="content"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Overlay -->
+    <div class="quiz-overlay" id="quizOverlay">
+        <div class="quiz-card" id="quizCard"></div>
+    </div>
+
+    <!-- Install Banner -->
+    <div class="install-banner" id="installBanner">
+        <span>📱 安裝應用程式以離線使用</span>
+        <button class="install-btn" id="installBtn">安裝</button>
+        <button class="dismiss-btn" id="dismissBtn">×</button>
+    </div>
+
+    <script>
+        // Curriculum Data
+        const curriculum = [
+            {
+                title: "Day 1: 基礎發音與見面",
+                items: [
+                    { es: "¡Hola!", zh: "你好！", tip: "最通用的打招呼，H 不發音。", ex: "Hola, ¿qué tal?", ex_zh: "嗨，你好嗎？" },
+                    { es: "Buenos días.", zh: "早安", tip: "下午2點前都算早安。", ex: "Buenos días a todos.", ex_zh: "大家早安。" },
+                    { es: "Buenas tardes.", zh: "午安", tip: "日落前都用這個。", ex: "Buenas tardes, señora.", ex_zh: "女士，午安。" },
+                    { es: "Buenas noches.", zh: "晚安", tip: "晚上見面或睡前都說。", ex: "Buenas noches, hasta mañana.", ex_zh: "晚安，明天見。" },
+                    { es: "¿Cómo estás?", zh: "你好嗎？", tip: "Cómo (How) + Estás (Are you)。", ex: "Hola Ana, ¿cómo estás?", ex_zh: "嗨 Ana，你好嗎？" },
+                    { es: "Bien, gracias.", zh: "很好，謝謝。", tip: "標準回答套路。", ex: "Muy bien, gracias. ¿Y tú?", ex_zh: "非常好，謝謝。你呢？" },
+                    { es: "Mucho gusto.", zh: "很高興認識你。", tip: "Gusto = 樂趣/品味。", ex: "Soy Pablo, mucho gusto.", ex_zh: "我是 Pablo，很高興認識你。" },
+                    { es: "Adiós.", zh: "再見。", tip: "A Dios (向著上帝)。", ex: "Adiós, buen viaje.", ex_zh: "再見，旅途愉快。" },
+                    { es: "Hasta luego.", zh: "待會見", tip: "最常用的道別。", ex: "Me voy, hasta luego.", ex_zh: "我走了，待會見。" },
+                    { es: "Por favor.", zh: "請 / 麻煩了。", tip: "為了(Por) 恩惠(Favor)。", ex: "Un café, por favor.", ex_zh: "請給我一杯咖啡。" },
+                    { es: "Perdón.", zh: "不好意思 / 借過。", tip: "撞到人、要過路時用。", ex: "Perdón, ¿puedo pasar?", ex_zh: "不好意思，我可以過嗎？" }
+                ]
+            },
+            {
+                title: "Day 2: 自我介紹與基礎交流",
+                items: [
+                    { es: "Me llamo...", zh: "我叫...", tip: "動詞 Llamarse (自稱)。", ex: "Me llamo David.", ex_zh: "我叫大衛。" },
+                    { es: "Soy de Taiwán.", zh: "我來自台灣。", tip: "Ser (是) + de (from)。", ex: "Soy de Taipéi.", ex_zh: "我來自台北。" },
+                    { es: "Soy turista.", zh: "我是遊客。", tip: "Turista = Tourist。", ex: "No trabajo aquí, soy turista.", ex_zh: "我不由這裡工作，我是遊客。" },
+                    { es: "No hablo español.", zh: "我不會說西文。", tip: "Hablo (Speak)。", ex: "Lo siento, no hablo español.", ex_zh: "抱歉，我不會說西班牙文。" },
+                    { es: "Hablo un poco.", zh: "我會說一點點。", tip: "Un poco = A little bit。", ex: "Hablo un poco de inglés.", ex_zh: "我會說一點英文。" },
+                    { es: "¿Hablas inglés?", zh: "你會說英文嗎？", tip: "Hablas (You speak)。", ex: "¿Perdón, hablas inglés?", ex_zh: "不好意思，你會說英文嗎？" },
+                    { es: "No entiendo.", zh: "我聽不懂。", tip: "Entiendo (Understand)。", ex: "Hablas muy rápido, no entiendo.", ex_zh: "你說太快了，我聽不懂。" },
+                    { es: "Más despacio, por favor.", zh: "請慢一點。", tip: "Despacio = 慢慢地。", ex: "Repite más despacio, por favor.", ex_zh: "請慢一點重複一次。" },
+                    { es: "¿Qué significa...?", zh: "...是什麼意思？", tip: "指著看不懂的字問。", ex: "¿Qué significa 'Salida'?", ex_zh: "「Salida」是什麼意思？" },
+                    { es: "Sí / No", zh: "是 / 否", tip: "Sí 有重音符號。", ex: "Sí, por favor.", ex_zh: "是的，麻煩了。" }
+                ]
+            },
+            {
+                title: "Day 3: 數字與基礎問句",
+                items: [
+                    { es: "¿Qué es esto?", zh: "這是什麼？", tip: "Qué (What) + Es (Is) + Esto (This)。", ex: "¿Qué es esto? ¿Pollo?", ex_zh: "這是什麼？雞肉嗎？" },
+                    { es: "¿Dónde?", zh: "哪裡？", tip: "發音像「東」。", ex: "¿Dónde estás?", ex_zh: "你在哪裡？" },
+                    { es: "¿Cuándo?", zh: "什麼時候？", tip: "像 Quantum (量/時間)。", ex: "¿Cuándo sale el tren?", ex_zh: "火車什麼時候開？" },
+                    { es: "¿Quién?", zh: "誰？", tip: "發音像 Kien。", ex: "¿Quién es él?", ex_zh: "他是誰？" },
+                    { es: "¿Por qué?", zh: "為什麼？", tip: "Por (For) + Qué (What)。", ex: "¿Por qué no?", ex_zh: "為什麼不？" },
+                    { es: "Uno, Dos, Tres", zh: "1, 2, 3", tip: "Uno(1), Dos(2), Tres(3)。", ex: "Mesa para tres, por favor.", ex_zh: "請給我們三人的桌子。" },
+                    { es: "Veinte", zh: "20", tip: "發音『貝-in-te』。", ex: "Cuesta veinte euros.", ex_zh: "這個要20歐元。" },
+                    { es: "Cincuenta", zh: "50", tip: "像 Cinco (5)。", ex: "Cincuenta centavos.", ex_zh: "50分錢。" },
+                    { es: "Cien", zh: "100", tip: "Century (世紀/百年)。", ex: "Cien por ciento.", ex_zh: "百分之百。" },
+                    { es: "Mil", zh: "1000", tip: "Millennium (千禧年)。", ex: "Dos mil pesos.", ex_zh: "兩千披索。" }
+                ]
+            },
+            {
+                title: "Day 4: 餐廳全攻略",
+                items: [
+                    { es: "Una mesa para dos.", zh: "兩位一桌。", tip: "Mesa (Table)。", ex: "Hola, una mesa para dos.", ex_zh: "你好，我們兩位。" },
+                    { es: "El menú.", zh: "菜單。", tip: "Menú = Menu。", ex: "¿Me trae el menú?", ex_zh: "可以給我菜單嗎？" },
+                    { es: "Para beber...", zh: "喝的要...", tip: "Beber (Drink)。", ex: "Para beber, una cerveza.", ex_zh: "飲料要一杯啤酒。" },
+                    { es: "Agua sin gas.", zh: "不氣泡水。", tip: "Sin (Without) + Gas (Gas)。", ex: "Una botella de agua sin gas.", ex_zh: "一瓶不含氣泡的水。" },
+                    { es: "Una cerveza.", zh: "一杯啤酒。", tip: "Cerveza (Beer)。", ex: "Dos cervezas grandes.", ex_zh: "兩杯大啤酒。" },
+                    { es: "Vino tinto.", zh: "紅酒。", tip: "Tinto (染色的/紅的)。", ex: "Una copa de vino tinto.", ex_zh: "一杯紅酒。" },
+                    { es: "Quiero esto.", zh: "我要這個。", tip: "指著菜單說這句。", ex: "Quiero esto y esto.", ex_zh: "我要這個和這個。" },
+                    { es: "Sin cebolla.", zh: "不要洋蔥。", tip: "Cebolla (洋蔥)。", ex: "Sin picante, por favor.", ex_zh: "請不要加辣。" },
+                    { es: "¡Salud!", zh: "乾杯！", tip: "原意是「健康」。", ex: "¡Salud, amigos!", ex_zh: "乾杯，朋友們！" },
+                    { es: "La cuenta, por favor.", zh: "請結帳。", tip: "Cuenta (Bill)。", ex: "Jefe, la cuenta por favor.", ex_zh: "老闆，請結帳。" },
+                    { es: "El baño", zh: "廁所", tip: "最重要的單字。", ex: "¿Dónde está el baño?", ex_zh: "廁所在哪裡？" }
+                ]
+            },
+            {
+                title: "Day 5: 交通與問路",
+                items: [
+                    { es: "¿Dónde está el metro?", zh: "地鐵站在哪？", tip: "Metro (Subway)。", ex: "Busco la estación de metro.", ex_zh: "我正在找地鐵站。" },
+                    { es: "La estación de tren.", zh: "火車站。", tip: "Estación (Station)。", ex: "Voy a la estación de tren.", ex_zh: "我要去火車站。" },
+                    { es: "El aeropuerto.", zh: "機場。", tip: "Aero (Air) + Puerto (Port)。", ex: "Taxi al aeropuerto.", ex_zh: "去機場的計程車。" },
+                    { es: "Un billete.", zh: "一張票。", tip: "Billete (Ticket)。", ex: "Un billete para Madrid.", ex_zh: "一張去馬德里的票。" },
+                    { es: "Ida y vuelta.", zh: "來回票。", tip: "Ida (去) + Vuelta (回)。", ex: "Dos billetes de ida y vuelta.", ex_zh: "兩張來回票。" },
+                    { es: "¿A qué hora sale?", zh: "幾點出發？", tip: "Sale 來自 Salir (Leave)。", ex: "¿A qué hora sale el autobús?", ex_zh: "巴士幾點出發？" },
+                    { es: "Andén", zh: "月台", tip: "火車月台。", ex: "¿Qué andén es? ¿El dos?", ex_zh: "是哪個月台？二號嗎？" },
+                    { es: "Todo recto.", zh: "直走。", tip: "Recto (Straight)。", ex: "Sigue todo recto.", ex_zh: "繼續直走。" },
+                    { es: "A la derecha.", zh: "向右。", tip: "Derecha (Right)。", ex: "Gira a la derecha.", ex_zh: "右轉。" },
+                    { es: "A la izquierda.", zh: "向左。", tip: "Izquierda (Left)。", ex: "A la izquierda en la esquina.", ex_zh: "在轉角處左轉。" },
+                    { es: "Cerca / Lejos", zh: "近 / 遠", tip: "Cerca (Close), Lejos (Far)。", ex: "¿Está lejos de aquí?", ex_zh: "離這裡遠嗎？" }
+                ]
+            },
+            {
+                title: "Day 6: 購物與殺價",
+                items: [
+                    { es: "¿Cuánto cuesta?", zh: "多少錢？", tip: "Cuesta (Cost)。", ex: "¿Cuánto cuesta esta camisa?", ex_zh: "這件襯衫多少錢？" },
+                    { es: "Solo estoy mirando.", zh: "我只是看看。", tip: "拒絕推銷用。", ex: "Gracias, solo estoy mirando.", ex_zh: "謝謝，我只是看看。" },
+                    { es: "Me lo pruebo.", zh: "我試穿一下。", tip: "Probar (Try)。", ex: "¿Puedo probármelo?", ex_zh: "我可以試穿嗎？" },
+                    { es: "Probadores", zh: "試衣間", tip: "找這個字去換衣服。", ex: "¿Dónde están los probadores?", ex_zh: "試衣間在哪裡？" },
+                    { es: "Es muy caro.", zh: "太貴了。", tip: "Caro (Expensive)。", ex: "Uy, es muy caro.", ex_zh: "喔，這太貴了。" },
+                    { es: "Más barato.", zh: "便宜一點。", tip: "Barato (Cheap)。", ex: "¿Tiene algo más barato?", ex_zh: "有更便宜的嗎？" },
+                    { es: "Me lo llevo.", zh: "我要買這個。", tip: "決定購買。", ex: "Me gusta, me lo llevo.", ex_zh: "我喜歡，我要買它。" },
+                    { es: "Tarjeta de crédito.", zh: "信用卡。", tip: "Tarjeta (Card)。", ex: "¿Puedo pagar con tarjeta?", ex_zh: "可以用卡付款嗎？" },
+                    { es: "Efectivo.", zh: "現金。", tip: "Effective = 現金。", ex: "Solo tengo efectivo.", ex_zh: "我只有現金。" },
+                    { es: "Rebajas", zh: "特價/拍賣", tip: "看到這個字快衝進去。", ex: "¡Mira! ¡Rebajas!", ex_zh: "你看！大減價！" }
+                ]
+            },
+            {
+                title: "Day 7: 第一週總複習",
+                items: [
+                    { es: "No funciona.", zh: "壞掉了 / 不能用。", tip: "Funcionar (Function)。", ex: "El aire acondicionado no funciona.", ex_zh: "冷氣壞掉了。" },
+                    { es: "Lo siento.", zh: "對不起 (遺憾)。", tip: "Siento (Feel)。", ex: "Lo siento, no puedo.", ex_zh: "抱歉，我沒辦法。" },
+                    { es: "No pasa nada.", zh: "沒事 / 沒關係。", tip: "直譯：沒有事情發生。", ex: "Tranquilo, no pasa nada.", ex_zh: "放輕鬆，沒事的。" },
+                    { es: "Claro que sí.", zh: "當然可以。", tip: "Claro (Clear)。", ex: "¡Claro que sí!", ex_zh: "當然可以！" },
+                    { es: "Ayuda, por favor.", zh: "請幫忙。", tip: "Ayuda (Help)。", ex: "Necesito ayuda.", ex_zh: "我需要幫忙。" },
+                    { es: "Estoy perdido.", zh: "我迷路了。", tip: "Perdido (Lost)。", ex: "Perdón, estoy perdido.", ex_zh: "不好意思，我迷路了。" }
+                ]
+            },
+            {
+                title: "Day 8: 住宿與飯店",
+                items: [
+                    { es: "Tengo una reserva.", zh: "我有預訂。", tip: "Reserva (Reservation)。", ex: "Hola, tengo una reserva.", ex_zh: "你好，我有預訂。" },
+                    { es: "A nombre de...", zh: "名字是...", tip: "Nombre (Name)。", ex: "Reserva a nombre de Andy.", ex_zh: "用 Andy 的名字訂的。" },
+                    { es: "¿Hay wifi?", zh: "有 Wifi 嗎？", tip: "Hay (There is)。發音像 Ay。", ex: "¿Cuál es la contraseña del wifi?", ex_zh: "Wifi 密碼是多少？" },
+                    { es: "Desayuno incluido.", zh: "包含早餐。", tip: "Incluido (Included)。", ex: "¿El desayuno está incluido?", ex_zh: "有包含早餐嗎？" },
+                    { es: "Ascensor", zh: "電梯", tip: "Ascend (上升)。", ex: "¿Dónde está el ascensor?", ex_zh: "電梯在哪裡？" },
+                    { es: "Maleta", zh: "行李箱", tip: "Maleta。", ex: "¿Puedo dejar mi maleta aquí?", ex_zh: "我可以把行李放這嗎？" },
+                    { es: "Toalla", zh: "毛巾", tip: "Towel。", ex: "Necesito una toalla más.", ex_zh: "我還需要一條毛巾。" },
+                    { es: "Hacer el check-out.", zh: "退房。", tip: "用英文 Check-out 也可以。", ex: "Quiero hacer el check-out.", ex_zh: "我想要退房。" }
+                ]
+            },
+            {
+                title: "Day 9: 時間與日期",
+                items: [
+                    { es: "¿Qué hora es?", zh: "現在幾點？", tip: "Hora (Hour)。", ex: "Perdón, ¿qué hora es?", ex_zh: "不好意思，現在幾點？" },
+                    { es: "Son las dos.", zh: "兩點了。", tip: "除了一點用 Es，其他都用 Son。", ex: "Son las ocho de la tarde.", ex_zh: "現在是晚上八點。" },
+                    { es: "Hoy / Mañana / Ayer", zh: "今天/明天/昨天", tip: "必背三寶。", ex: "Hoy es lunes.", ex_zh: "今天是星期一。" },
+                    { es: "Lunes, Martes...", zh: "週一, 週二...", tip: "一到日都要記一下。", ex: "El museo cierra el lunes.", ex_zh: "博物館週一休館。" },
+                    { es: "Ahora", zh: "現在", tip: "發音 A-o-ra。", ex: "Lo quiero ahora.", ex_zh: "我現在就要。" },
+                    { es: "Tarde", zh: "遲 / 晚", tip: "Tarde。", ex: "Llegas tarde.", ex_zh: "你遲到了。" }
+                ]
+            },
+            {
+                title: "Day 10: 城市漫遊",
+                items: [
+                    { es: "Museo", zh: "博物館", tip: "Museum。", ex: "El Museo del Prado.", ex_zh: "普拉多博物館。" },
+                    { es: "Entrada", zh: "入口 / 門票", tip: "Enter (進入)。", ex: "Dos entradas, por favor.", ex_zh: "請給我兩張票。" },
+                    { es: "Playa", zh: "海灘", tip: "去海邊 Play。", ex: "Vamos a la playa.", ex_zh: "我們去海灘吧。" },
+                    { es: "Calle", zh: "街道", tip: "發音 Ca-ye。", ex: "Calle Gran Vía.", ex_zh: "格蘭大道。" },
+                    { es: "Plaza", zh: "廣場", tip: "Plaza。", ex: "Quedamos en la plaza.", ex_zh: "我們約在廣場。" },
+                    { es: "Iglesia", zh: "教堂", tip: "Iglesia。", ex: "Una iglesia antigua.", ex_zh: "一座古老的教堂。" },
+                    { es: "Foto", zh: "照片", tip: "Photo。", ex: "¿Puede hacernos una foto?", ex_zh: "能幫我們拍張照嗎？" }
+                ]
+            },
+            {
+                title: "Day 11: 生活採購",
+                items: [
+                    { es: "Supermercado", zh: "超市", tip: "Supermarket。", ex: "Voy al súper.", ex_zh: "我要去超市。" },
+                    { es: "Bolsa", zh: "袋子", tip: "Bag。", ex: "¿Quiere bolsa?", ex_zh: "需要袋子嗎？" },
+                    { es: "Agua / Leche / Pan", zh: "水 / 牛奶 / 麵包", tip: "生存三寶。", ex: "Una barra de pan.", ex_zh: "一條麵包。" },
+                    { es: "Fruta", zh: "水果", tip: "Fruit。", ex: "Me gusta la fruta.", ex_zh: "我喜歡水果。" },
+                    { es: "Farmacia", zh: "藥局", tip: "Pharmacy。", ex: "Busco una farmacia de guardia.", ex_zh: "我找值班藥局。" },
+                    { es: "Crema solar.", zh: "防曬乳。", tip: "Solar (太陽的)。", ex: "Necesito crema solar.", ex_zh: "我需要防曬乳。" }
+                ]
+            },
+            {
+                title: "Day 12: 緊急狀況與身體",
+                items: [
+                    { es: "¡Socorro!", zh: "救命！", tip: "大喊這個。", ex: "¡Socorro! ¡Fuego!", ex_zh: "救命！失火了！" },
+                    { es: "Policía", zh: "警察", tip: "Police。", ex: "Llame a la policía.", ex_zh: "請叫警察。" },
+                    { es: "Hospital", zh: "醫院", tip: "Hospital。H不發音。", ex: "¿Dónde está el hospital?", ex_zh: "醫院在哪裡？" },
+                    { es: "Me duele...", zh: "我...痛", tip: "Duele (Hurts)。", ex: "Me duele la cabeza.", ex_zh: "我頭痛。" },
+                    { es: "Me duele la barriga.", zh: "我肚子痛。", tip: "Barriga (肚子)。", ex: "Creo que me duele la barriga.", ex_zh: "我覺得我肚子痛。" },
+                    { es: "Fiebre", zh: "發燒", tip: "Fever。", ex: "Tengo fiebre.", ex_zh: "我發燒了。" },
+                    { es: "He perdido...", zh: "我弄丟了...", tip: "Perdido (Lost)。", ex: "He perdido mi pasaporte.", ex_zh: "我弄丟了護照。" }
+                ]
+            },
+            {
+                title: "Day 13: 表達感受與喜好",
+                items: [
+                    { es: "Me gusta...", zh: "我喜歡...", tip: "Gusta (Like)。", ex: "Me gusta mucho España.", ex_zh: "我非常喜歡西班牙。" },
+                    { es: "No me gusta.", zh: "我不喜歡。", tip: "加個 No。", ex: "No me gusta el queso.", ex_zh: "我不喜歡起司。" },
+                    { es: "Tengo hambre.", zh: "我餓了。", tip: "直譯：我有飢餓。", ex: "¿Comemos? Tengo hambre.", ex_zh: "要吃飯嗎？我餓了。" },
+                    { es: "Tengo sed.", zh: "我渴了。", tip: "直譯：我有口渴。", ex: "Tengo sed, quiero agua.", ex_zh: "我渴了，想喝水。" },
+                    { es: "Estoy cansado.", zh: "我累了。", tip: "Cansado (Tired)。", ex: "Vamos al hotel, estoy cansado.", ex_zh: "回飯店吧，我累了。" },
+                    { es: "Estoy feliz.", zh: "我很快樂。", tip: "Feliz (Happy)。", ex: "Estoy muy feliz aquí.", ex_zh: "我在這裡很開心。" }
+                ]
+            },
+            {
+                title: "Day 14: 社交閒聊",
+                items: [
+                    { es: "¿De dónde eres?", zh: "你是哪裡人？", tip: "Where are you from?", ex: "Soy de México. ¿Y tú?", ex_zh: "我來自墨西哥，你呢？" },
+                    { es: "¿Viajas solo?", zh: "你一個人旅行嗎？", tip: "Solo (Alone)。", ex: "No, viajo con amigos.", ex_zh: "不，我和朋友一起。" },
+                    { es: "¡Qué guay!", zh: "好酷！", tip: "西班牙專用。Guay (Cool)。", ex: "¡Tu cámara es muy guay!", ex_zh: "你的相機好酷！" },
+                    { es: "¿Tienes Instagram?", zh: "你有 IG 嗎？", tip: "常用問法。", ex: "Dame tu Instagram.", ex_zh: "給我你的 IG。" },
+                    { es: "Vamos a tomar algo.", zh: "去喝一杯吧。", tip: "Tomar algo (Drink something)。", ex: "¿Te apetece tomar algo?", ex_zh: "你想去喝一杯嗎？" }
+                ]
+            },
+            {
+                title: "Day 15: 綜合模擬",
+                items: [
+                    { es: "Me gustaría reservar...", zh: "我想要預訂...", tip: "Me gustaría (I would like) 很有禮貌。", ex: "Me gustaría reservar una mesa.", ex_zh: "我想要訂位。" },
+                    { es: "La comida estaba deliciosa.", zh: "食物很美味。", tip: "Estaba (Was)。吃完後說。", ex: "Todo estaba muy rico.", ex_zh: "每樣東西都很好吃。" },
+                    { es: "Disculpe, ¿me puede ayudar?", zh: "不好意思，能幫我嗎？", tip: "Disculpe (Excuse me)。", ex: "No encuentro mi hotel.", ex_zh: "我找不到我的飯店。" },
+                    { es: "Ha sido un placer.", zh: "是我的榮幸。", tip: "高級道別。", ex: "Gracias por todo, ha sido un placer.", ex_zh: "感謝一切，這是我的榮幸。" },
+                    { es: "Voy a volver.", zh: "我會回來的。", tip: "Volver (Return)。", ex: "Me encanta este lugar, voy a volver.", ex_zh: "我愛這裡，我會回來的。" }
+                ]
+            }
+        ];
+
+        // Global Variables
+        const select = document.getElementById('daySelect');
+        const container = document.getElementById('content');
+        const progressBar = document.getElementById('progress');
+        const quizOverlay = document.getElementById('quizOverlay');
+        const quizCard = document.getElementById('quizCard');
+
+        let quizQueue = [];
+        let currentQuizIndex = 0;
+        let score = 0;
+        let speechRate = 0.9; // 語速設定（恢復原本的0.9）
+        let selectedVoice = null; // 選擇的語音
+        let availableVoices = []; // 可用的語音列表
+
+        // Initialize
+        curriculum.forEach((day, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.text = day.title;
+            select.appendChild(option);
+        });
+
+        // Tab Switching
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const sections = document.querySelectorAll('.content-section');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active'));
+            
+            if (tab === 'pronunciation') {
+                tabs[0].classList.add('active');
+                document.getElementById('pronunciation-section').classList.add('active');
+            } else {
+                tabs[1].classList.add('active');
+                document.getElementById('lessons-section').classList.add('active');
+            }
+        }
+
+        // Render Lesson Content
+        function renderContent() {
+            const dayIndex = select.value;
+            const dayData = curriculum[dayIndex];
+            
+            const percentage = ((parseInt(dayIndex) + 1) / curriculum.length) * 100;
+            progressBar.style.width = percentage + "%";
+
+            container.innerHTML = '';
+
+            dayData.items.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.animationDelay = `${idx * 0.05}s`;
+                
+                const main = document.createElement('div');
+                main.className = 'card-main';
+                main.onclick = () => speak(item.es);
+
+                main.innerHTML = `
+                    <div class="text-group">
+                        <span class="es">${item.es}</span>
+                        <span class="zh">${item.zh}</span>
+                    </div>
+                    <div class="btn-group">
+                        <button class="btn-speak">🔊</button>
+                        <button class="btn-detail" onclick="toggleDetail(event, this)">💡</button>
+                    </div>
+                `;
+                
+                const detail = document.createElement('div');
+                detail.className = 'detail-box';
+                detail.innerHTML = `
+                    <div class="detail-content">
+                        <span class="tip-label">🧠 記憶小撇步</span>
+                        ${item.tip}
+                        <div class="example">
+                            <div class="ex-text">
+                                <span class="tip-label">🗣️ 例句</span>
+                                <div>${item.ex}</div>
+                                <span class="ex-zh">${item.ex_zh || ''}</span>
+                            </div>
+                            <button class="btn-ex-speak" onclick="speak('${item.ex.replace(/'/g, "\\'")}')">🔊</button>
+                        </div>
+                    </div>
+                `;
+
+                card.appendChild(main);
+                card.appendChild(detail);
+                container.appendChild(card);
+            });
+
+            const quizDiv = document.createElement('div');
+            quizDiv.className = 'quiz-start-area';
+            quizDiv.innerHTML = `<button class="btn-quiz-start" onclick="startQuiz()"><span>🧠 開始每日測驗</span></button>`;
+            container.appendChild(quizDiv);
+        }
+
+        // Speech Synthesis
+        function speak(text) {
+            window.speechSynthesis.cancel();
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+            msg.lang = 'es-ES';
+            msg.rate = speechRate; // 使用動態語速
+            
+            // 使用選擇的語音
+            if (selectedVoice) {
+                msg.voice = selectedVoice;
+            }
+            
+            window.speechSynthesis.speak(msg);
+        }
+
+        // Toggle Detail
+        function toggleDetail(e, btn) {
+            e.stopPropagation();
+            const card = btn.closest('.card');
+            const detailBox = card.querySelector('.detail-box');
+            
+            if (detailBox.style.maxHeight) {
+                detailBox.style.maxHeight = null;
+                btn.classList.remove('active');
+            } else {
+                detailBox.style.maxHeight = detailBox.scrollHeight + "px";
+                btn.classList.add('active');
+            }
+        }
+
+        // Quiz Functions
+        function startQuiz() {
+            const dayIndex = select.value;
+            const items = curriculum[dayIndex].items;
+            
+            let questions = [...items];
+            questions.sort(() => Math.random() - 0.5);
+            quizQueue = questions.slice(0, Math.min(5, items.length));
+            
+            currentQuizIndex = 0;
+            score = 0;
+            quizOverlay.style.display = 'flex';
+            renderQuizQuestion();
+        }
+
+        function renderQuizQuestion() {
+            if (currentQuizIndex >= quizQueue.length) {
+                showQuizResult();
+                return;
+            }
+
+            const q = quizQueue[currentQuizIndex];
+            const allItems = curriculum[select.value].items;
+            
+            let options = [q];
+            while (options.length < 3 && options.length < allItems.length) {
+                const randomItem = allItems[Math.floor(Math.random() * allItems.length)];
+                if (!options.includes(randomItem)) {
+                    options.push(randomItem);
+                }
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            quizCard.innerHTML = `
+                <button class="btn-close-quiz" onclick="closeQuiz()">×</button>
+                <div class="quiz-score">Question ${currentQuizIndex + 1} / ${quizQueue.length}</div>
+                <div class="quiz-question">如何說：<br>"${q.zh}" ?</div>
+                <div class="quiz-options">
+                    ${options.map(opt => `
+                        <button class="option-btn" onclick="checkAnswer(this, '${opt.es.replace(/'/g, "\\'")}', '${q.es.replace(/'/g, "\\'")}')">
+                            ${opt.es}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function checkAnswer(btn, selected, correct) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(b => b.disabled = true);
+
+            if (selected === correct) {
+                btn.classList.add('correct');
+                score++;
+                speak(correct);
+            } else {
+                btn.classList.add('wrong');
+                buttons.forEach(b => {
+                    if (b.innerText.includes(correct)) b.classList.add('correct');
+                });
+            }
+
+            setTimeout(() => {
+                currentQuizIndex++;
+                renderQuizQuestion();
+            }, 1200);
+        }
+
+        function showQuizResult() {
+            const percentage = Math.round((score / quizQueue.length) * 100);
+            let message = '';
+            let emoji = '';
+            
+            if (percentage === 100) {
+                message = '完美！你是西語天才！';
+                emoji = '🎉';
+            } else if (percentage >= 80) {
+                message = '太棒了！繼續加油！';
+                emoji = '🌟';
+            } else if (percentage >= 60) {
+                message = '不錯喔！多練習會更好！';
+                emoji = '👍';
+            } else {
+                message = '再接再厲，多聽多練！';
+                emoji = '💪';
+            }
+
+            quizCard.innerHTML = `
+                <button class="btn-close-quiz" onclick="closeQuiz()">×</button>
+                <h2 style="color:var(--deep-red); margin-bottom: 20px; font-family: 'Crimson Text', serif;">${emoji} 測驗結束！</h2>
+                <div style="font-size: 4rem; margin: 20px 0; font-weight: 800;">${score}/${quizQueue.length}</div>
+                <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">${message}</p>
+                <button class="btn-quiz-start" onclick="closeQuiz()"><span>回到列表</span></button>
+                <button class="btn-quiz-start" style="margin-top:15px; background:white; color:var(--charcoal); border:2px solid #E0E0E0" onclick="startQuiz()"><span>再測一次</span></button>
+            `;
+        }
+
+        function closeQuiz() {
+            quizOverlay.style.display = 'none';
+        }
+
+        // PWA Installation
+        let deferredPrompt;
+        const installBanner = document.getElementById('installBanner');
+        const installBtn = document.getElementById('installBtn');
+        const dismissBtn = document.getElementById('dismissBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.classList.add('show');
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                installBanner.classList.remove('show');
+            }
+        });
+
+        dismissBtn.addEventListener('click', () => {
+            installBanner.classList.remove('show');
+        });
+
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registered'))
+                .catch(err => console.log('Service Worker registration failed'));
+        }
+
+        // Speed Control Initialization
+        const speedSlider = document.getElementById('speedSlider');
+        const speedValue = document.getElementById('speedValue');
+        
+        if (speedSlider && speedValue) {
+            speedSlider.addEventListener('input', (e) => {
+                speechRate = parseFloat(e.target.value);
+                speedValue.textContent = speechRate.toFixed(1) + 'x';
+            });
+        }
+
+        // Voice Selection Initialization
+        const voiceSelect = document.getElementById('voiceSelect');
+        
+        function loadVoices() {
+            availableVoices = window.speechSynthesis.getVoices();
+            
+            // 過濾出西班牙語語音
+            const spanishVoices = availableVoices.filter(voice => 
+                voice.lang.startsWith('es') || voice.lang.startsWith('ES')
+            );
+            
+            if (voiceSelect && spanishVoices.length > 0) {
+                voiceSelect.innerHTML = '';
+                
+                spanishVoices.forEach((voice, index) => {
+                    const option = document.createElement('option');
+                    option.value = index;
+                    
+                    // 判斷性別（基於名稱關鍵字）
+                    const name = voice.name.toLowerCase();
+                    let genderBadge = '';
+                    let isMale = false;
+                    
+                    if (name.includes('male') || name.includes('man') || name.includes('diego') || 
+                        name.includes('jorge') || name.includes('carlos') || name.includes('juan')) {
+                        genderBadge = ' 👨 男聲';
+                        isMale = true;
+                    } else if (name.includes('female') || name.includes('woman') || name.includes('monica') || 
+                               name.includes('maria') || name.includes('lucia') || name.includes('paulina')) {
+                        genderBadge = ' 👩 女聲';
+                    }
+                    
+                    option.textContent = `${voice.name} (${voice.lang})${genderBadge}`;
+                    voiceSelect.appendChild(option);
+                    
+                    // 預設選擇第一個男聲（如果有的話）
+                    if (isMale && !selectedVoice) {
+                        selectedVoice = voice;
+                        option.selected = true;
+                    }
+                });
+                
+                // 如果沒有找到男聲，使用第一個語音
+                if (!selectedVoice && spanishVoices.length > 0) {
+                    selectedVoice = spanishVoices[0];
+                    voiceSelect.selectedIndex = 0;
+                }
+                
+                // 監聽語音選擇變化
+                voiceSelect.addEventListener('change', (e) => {
+                    const voiceIndex = parseInt(e.target.value);
+                    selectedVoice = spanishVoices[voiceIndex];
+                    
+                    // 試聽選擇的語音
+                    speak('Hola');
+                });
+            } else if (voiceSelect) {
+                voiceSelect.innerHTML = '<option>無可用的西班牙語語音</option>';
+            }
+        }
+        
+        // 載入語音（某些瀏覽器需要等待）
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+        }
+        loadVoices(); // 立即嘗試載入
+
+        // Initial Render
+        renderContent();
+    </script>
+</body>
+</html>
