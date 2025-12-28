@@ -385,6 +385,60 @@
             color: #C2185B;
         }
 
+        /* Audio Unlock Banner */
+        .audio-unlock-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            z-index: 2000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            display: none;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .audio-unlock-banner.show {
+            display: block;
+        }
+
+        .audio-unlock-banner h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .audio-unlock-banner p {
+            margin: 0 0 15px 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .btn-unlock-audio {
+            background: white;
+            color: var(--deep-red);
+            padding: 15px 40px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .btn-unlock-audio:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-unlock-audio:active {
+            transform: scale(0.95);
+        }
+
         /* Content Sections */
         .content-section {
             display: none;
@@ -1244,6 +1298,13 @@
         <button class="dismiss-btn" id="dismissBtn">×</button>
     </div>
 
+    <!-- Audio Unlock Banner (for mobile) -->
+    <div class="audio-unlock-banner" id="audioUnlockBanner">
+        <h3>🔊 啟用聲音功能</h3>
+        <p>請點擊下方按鈕以啟用語音播放功能</p>
+        <button class="btn-unlock-audio" id="unlockAudioBtn">啟用聲音</button>
+    </div>
+
     <script>
         // Curriculum Data
         const curriculum = [
@@ -1456,6 +1517,7 @@
         let speechRate = 0.9; // 語速設定（恢復原本的0.9）
         let selectedVoice = null; // 選擇的語音
         let availableVoices = []; // 可用的語音列表
+        let audioUnlocked = false; // 音頻是否已解鎖
 
         // Initialize
         curriculum.forEach((day, index) => {
@@ -1542,6 +1604,12 @@
 
         // Speech Synthesis
         function speak(text) {
+            // 檢查音頻是否已解鎖（主要針對手機）
+            if (!audioUnlocked && isMobileDevice()) {
+                showAudioUnlockBanner();
+                return;
+            }
+
             window.speechSynthesis.cancel();
             const msg = new SpeechSynthesisUtterance();
             msg.text = text;
@@ -1554,6 +1622,57 @@
             }
             
             window.speechSynthesis.speak(msg);
+        }
+
+        // 檢測是否為移動設備
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 顯示音頻解鎖橫幅
+        function showAudioUnlockBanner() {
+            const banner = document.getElementById('audioUnlockBanner');
+            if (banner) {
+                banner.classList.add('show');
+            }
+        }
+
+        // 隱藏音頻解鎖橫幅
+        function hideAudioUnlockBanner() {
+            const banner = document.getElementById('audioUnlockBanner');
+            if (banner) {
+                banner.classList.remove('show');
+            }
+        }
+
+        // 解鎖音頻
+        function unlockAudio() {
+            // 播放一個靜音來解鎖音頻上下文
+            const msg = new SpeechSynthesisUtterance('');
+            msg.volume = 0;
+            window.speechSynthesis.speak(msg);
+            
+            // 等待一下確保解鎖
+            setTimeout(() => {
+                // 播放一個測試音來確認
+                const testMsg = new SpeechSynthesisUtterance('Hola');
+                testMsg.lang = 'es-ES';
+                testMsg.rate = speechRate;
+                if (selectedVoice) {
+                    testMsg.voice = selectedVoice;
+                }
+                window.speechSynthesis.speak(testMsg);
+                
+                audioUnlocked = true;
+                hideAudioUnlockBanner();
+                
+                // 儲存解鎖狀態
+                try {
+                    localStorage.setItem('audioUnlocked', 'true');
+                } catch (e) {
+                    console.log('無法儲存音頻解鎖狀態');
+                }
+            }, 100);
         }
 
         // Toggle Detail
@@ -1713,6 +1832,27 @@
                 speechRate = parseFloat(e.target.value);
                 speedValue.textContent = speechRate.toFixed(1) + 'x';
             });
+        }
+
+        // Audio Unlock Initialization
+        const unlockAudioBtn = document.getElementById('unlockAudioBtn');
+        
+        if (unlockAudioBtn) {
+            unlockAudioBtn.addEventListener('click', unlockAudio);
+        }
+
+        // 檢查是否已經解鎖過（僅在桌面或已解鎖的移動設備）
+        if (!isMobileDevice()) {
+            audioUnlocked = true;
+        } else {
+            try {
+                const wasUnlocked = localStorage.getItem('audioUnlocked');
+                if (wasUnlocked === 'true') {
+                    audioUnlocked = true;
+                }
+            } catch (e) {
+                console.log('無法讀取音頻解鎖狀態');
+            }
         }
 
         // Voice Selection Initialization
